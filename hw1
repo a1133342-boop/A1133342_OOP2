@@ -1,0 +1,88 @@
+
+import java.awt.*;
+import javax.swing.*;
+
+public class a1133342_hw1 {
+
+    public static void main(String[] args) {
+
+       
+        JFrame frm = new JFrame("骰子點數顯示器");
+        frm.setSize(400, 400);
+        frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        
+        frm.setLayout(new BorderLayout());
+
+        
+        JLabel lbl = new JLabel("目前點數：5", SwingConstants.CENTER);
+        lbl.setFont(new Font("微軟正黑體", Font.PLAIN, 60));
+
+        
+        DicePanel dice = new DicePanel();
+
+      
+        frm.add(lbl, BorderLayout.NORTH);
+
+        frm.add(dice, BorderLayout.CENTER);
+
+       
+        frm.setLocationRelativeTo(null);
+
+        
+        frm.setVisible(true);
+    }
+}
+
+
+
+class DicePanel extends JPanel {
+
+    public DicePanel() {
+        setPreferredSize(new Dimension(200, 200));
+        setBackground(Color.WHITE);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D) g;
+
+   
+        g2.setRenderingHint(
+            RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON
+        );
+
+        
+        g2.setColor(Color.BLACK);
+        g2.fillRoundRect(20, 20, 160, 160, 20, 20);
+
+      
+        g2.setColor(Color.WHITE);
+        g2.fillRoundRect(25, 25, 150, 150, 16, 16);
+
+       
+        g2.setColor(Color.BLACK);
+
+        int[][] dots = {
+            {65, 65},
+            {135, 65},
+            {100, 100},
+            {65, 135},
+            {135, 135}
+        };
+
+      
+        for (int[] dot : dots) {
+            g2.fillOval(
+                dot[0] - 10,
+                dot[1] - 10,
+                20,
+                20
+            );
+        }
+    }
+}
+
