@@ -190,7 +190,7 @@ public class a1133342_hw1_2 extends JFrame {
 
     public static void main(String[] args) {
 
-        new a1133342_hw1();
+        new a1133342_hw1_2();
 
     }
 }
